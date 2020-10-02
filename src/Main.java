@@ -1,8 +1,7 @@
 import acm.program.*;
 import acm.graphics.*;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.*;
 
 public class Main extends GraphicsProgram {
@@ -65,7 +64,7 @@ public class Main extends GraphicsProgram {
         setCenterLocations(game_b,0,5);
         add(game_b);
 
-        GLabel game_l = new GLabel("Play Games");
+        GLabel game_l = new GLabel("Play Game");
         game_l.setFont(font2);
         centerAtObj(game_b,game_l,0,18);
         add(game_l);
@@ -124,7 +123,8 @@ public class Main extends GraphicsProgram {
         game_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Quiz quiz = new Quiz();
+                drawGame();
+                canvas.game();
             }
 
             @Override
@@ -215,40 +215,40 @@ public class Main extends GraphicsProgram {
         setCenterX(lessons,40);
         add(lessons);
 
-        GRect Module1_b = new GRect(120,50);
+        GRect Module1_b = new GRect(300,50);
         Module1_b.setFillColor(Color.LIGHT_GRAY);
         Module1_b.setFilled(true);
         setCenterLocations(Module1_b,0,-50);
         add(Module1_b);
 
-        GLabel Module1_l = new GLabel("Module 1");
+        GLabel Module1_l = new GLabel("Module 1: What to do Online?");
         Module1_l.setFont(font2);
         centerAtObj(Module1_b,Module1_l, 0, 18);
         add(Module1_l);
 
-        GRect Module2_b = new GRect(120,50);
+        GRect Module2_b = new GRect(300,50);
         Module2_b.setFillColor(Color.LIGHT_GRAY);
         Module2_b.setFilled(true);
         setCenterLocations(Module2_b,0,5);
         add(Module2_b);
 
-        GLabel Module2_l = new GLabel("Module 2");
+        GLabel Module2_l = new GLabel("Module 2: Cybercrime");
         Module2_l.setFont(font2);
         centerAtObj(Module2_b,Module2_l,0,18);
         add(Module2_l);
 
-        GRect Module3_b = new GRect(120,50);
+        GRect Module3_b = new GRect(300,50);
         Module3_b.setFillColor(Color.LIGHT_GRAY);
         Module3_b.setFilled(true);
         setCenterLocations(Module3_b,0,60);
         add(Module3_b);
 
-        GLabel Module3_l = new GLabel("Module 3");
+        GLabel Module3_l = new GLabel("Module 3: Online Safety");
         Module3_l.setFont(font2);
         centerAtObj(Module3_b,Module3_l,0,18);
         add(Module3_l);
 
-        GRect exit_b = new GRect(120,50);
+        GRect exit_b = new GRect(300,50);
         exit_b.setFillColor(Color.LIGHT_GRAY);
         exit_b.setFilled(true);
         setCenterLocations(exit_b,0,115);
@@ -340,6 +340,128 @@ public class Main extends GraphicsProgram {
             }
         });
 
+        exit_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                drawMainMenu();
+                canvas.art();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+    public void drawGame() {
+        removeAll();
+        setBackground(Color.GRAY);
+
+        String font1 = "Arial-50-bold";
+        String font2 = "Arial-20";
+
+        GLabel games = new GLabel("Games");
+        games.setFont(font1);
+        setCenterX(games,40);
+        add(games);
+
+        GRect game1_b = new GRect(300,50);
+        game1_b.setFillColor(Color.LIGHT_GRAY);
+        game1_b.setFilled(true);
+        setCenterLocations(game1_b,0,-50);
+        add(game1_b);
+
+        GLabel game1_l = new GLabel("Multiple Choice - Conceptual");
+        game1_l.setFont(font2);
+        centerAtObj(game1_b,game1_l, 0, 18);
+        add(game1_l);
+
+        GRect game2_b = new GRect(300,50);
+        game2_b.setFillColor(Color.LIGHT_GRAY);
+        game2_b.setFilled(true);
+        setCenterLocations(game2_b,0,5);
+        add(game2_b);
+
+        GLabel game2_l = new GLabel("Hangman");
+        game2_l.setFont(font2);
+        centerAtObj(game2_b, game2_l,0,18);
+        add(game2_l);
+
+        GRect game3_b = new GRect(300,50);
+        game3_b.setFillColor(Color.LIGHT_GRAY);
+        game3_b.setFilled(true);
+        setCenterLocations(game3_b,0,60);
+        add(game3_b);
+
+        GLabel game3_l = new GLabel("Identification");
+        game3_l.setFont(font2);
+        centerAtObj(game3_b,game3_l,0,18);
+        add(game3_l);
+
+        GRect game4_b = new GRect(300,50);
+        game4_b.setFillColor(Color.LIGHT_GRAY);
+        game4_b.setFilled(true);
+        setCenterLocations(game4_b,0,115);
+        add(game4_b);
+
+        GLabel game4_l = new GLabel("Multiple Choice - IRL");
+        game4_l.setFont(font2);
+        centerAtObj(game4_b,game4_l,0,18);
+        add(game4_l);
+
+        GRect exit_b = new GRect(300,50);
+        exit_b.setFillColor(Color.LIGHT_GRAY);
+        exit_b.setFilled(true);
+        setCenterLocations(exit_b,0,170);
+        add(exit_b);
+
+        GLabel exit_l = new GLabel("Exit Games");
+        exit_l.setFont(font2);
+        centerAtObj(exit_b,exit_l,0,18);
+        add(exit_l);
+
+        game1_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Quiz quiz = new Quiz();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         exit_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

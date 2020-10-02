@@ -1,0 +1,20 @@
+Companies would not use a generic greeting in their
+  messages (ex: “Hi Dear”), they would use your name
+  when contacting you.
+
+Use a security software
+–Security software would prevent malwares and
+  hackers from gaining access to your device.
+
+Make sure your devices are set to automatically
+  update its software
+–Updates would give protection against security
+  threats.
+
+Use multi-factor authentication
+–This type of authentication requires two or more
+  credentials to be able to access your account.
+
+
+Congratulations!
+You have completed Module 3!

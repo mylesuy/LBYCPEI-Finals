@@ -2,6 +2,9 @@ import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /*
     Window Size: 376,470
@@ -105,30 +108,234 @@ public class Side extends GCanvas {
 
     }
 
+    private static final int TEXT_HEIGHT=20;
+    private int textX=0;
+    private int textY=0;
+
+    public void printText(String text){
+        GLabel line = new GLabel(text);
+        line.setFont("Arial-16");
+        textY += TEXT_HEIGHT;
+        add(line,  textX , textY );
+    }
+
+    public void displayLesson(String module, String page) {
+        removeAll();
+        textY=0;
+        try{
+            BufferedReader buffer = new BufferedReader(new FileReader("assets/"+ module +"/" + page + ".txt"));
+            String line;
+            while ((line = buffer.readLine()) != null) {
+                printText(line);
+            }
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void page(String module, int page, int total) {
+        String pg = "Lesson"+page;
+        displayLesson(module,pg);
+
+        GPolygon next = new GPolygon();
+        next.addVertex(-30,0);
+        next.addVertex(30,0);
+        next.addVertex(0,40);
+        next.rotate(90);
+        next.setColor(Color.WHITE);
+        next.setFillColor(Color.GREEN);
+        next.setFilled(true);
+        next.setLocation(330,435);
+
+        GPolygon previous = new GPolygon();
+        previous.addVertex(-30,0);
+        previous.addVertex(30,0);
+        previous.addVertex(0,40);
+        previous.rotate(-90);
+        previous.setColor(Color.WHITE);
+        previous.setFillColor(Color.GREEN);
+        previous.setFilled(true);
+        previous.setLocation(290,435);
+
+        int pre = page-1;
+        int nxt = page+1;
+        /*
+        String nxpg = "Lesson"+nxt;
+        String prepg = "Lesson"+pre;
+        */
+
+        if (pre<1 && nxt>total) {
+            previous.setFillColor(Color.GRAY);
+            add(previous);
+            next.setFillColor(Color.GRAY);
+            add(next);
+
+        } else {
+            add(previous);
+            add(next);
+            previous.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,pre,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+            next.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,nxt,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+        }
+
+        if (pre<1) {
+            previous.setFillColor(Color.GRAY);
+            add(previous);
+            add(next);
+            next.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,nxt,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+        }
+
+        if (nxt>total) {
+            add(previous);
+            previous.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,pre,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+            next.setFillColor(Color.GRAY);
+            add(next);
+        }
+    }
+
     public void module1() {
+        int total_pages=3;
         removeAll();
         setBackground(Color.CYAN);
 
-        String font1 = "Arial-25-bold";
-        String font2 = "Arial-20";
-
-        GLabel Module1 = new GLabel("Module 1: Online Etiquette");
-        Module1.setFont(font1);
-        setCenterX(Module1,20);
-        add(Module1);
-
-        GLabel whatIsOE = new GLabel("What is Online Etiquette?");
-        whatIsOE.setFont(font2);
-        add(whatIsOE,0,40);
+        //displayLesson("Module1","Lesson1");
+        page("Module1",1, total_pages);
     }
 
     public void module2() {
+        int total_pages=2;
         removeAll();
         setBackground(Color.CYAN);
+        page("Module2",1, total_pages);
     }
 
     public void module3() {
+        int total_pages=3;
         removeAll();
         setBackground(Color.CYAN);
+        page("Module3",1, total_pages);
+    }
+
+    public void game() {
+        removeAll();
+        setBackground(Color.RED);
+
+        String font1 = "Arial-35-bold";
+        String font2 = "Arial-25";
+
+        GLabel game = new GLabel("Welcome to Games!");
+        game.setFont(font1);
+        setCenterLocations(game,0,-10);
+        add(game);
+
+        GLabel selGame = new GLabel("Please select a game");
+        selGame.setFont(font2);
+        setCenterLocations(selGame,0,20);
+        add(selGame);
+
+        GLabel arrow = new GLabel("<--------------");
+        arrow.setFont(font2);
+        setCenterLocations(arrow, 0, 50);
+        add(arrow);
     }
 }

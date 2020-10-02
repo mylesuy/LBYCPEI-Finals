@@ -1,0 +1,22 @@
+What is Cybercrime?
+–It is type of crime, where a computer is involved or 
+  is used to commit a crime.
+
+Types of Cybercrime:
+Identity Theft
+–Occurs when a criminal or hacker gains access and
+  steal someone’s personal data.
+Phishing
+–A type of attack, where the hacker creates a fake
+  website or email that is imitating a legitimate
+  company to trick unsuspecting victim.
+Ransomware
+–A program that commonly encrypts a victim’s data,
+  and demands a ransom to decrypt and return the victim’s data.
+Malware
+–A program that is used to spy a person and also to
+  steal their information, like logging a person’s
+  login passwords, spying a person’s online
+  activities, steal personal information, etc.
+
+Continued on next page...
