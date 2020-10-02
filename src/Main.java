@@ -124,7 +124,7 @@ public class Main extends GraphicsProgram {
         game_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                MultipleChoice.main(new String[0]);
+                Quiz quiz = new Quiz();
             }
 
             @Override
