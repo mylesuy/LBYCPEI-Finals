@@ -335,7 +335,7 @@ public class Side extends GCanvas {
 
     public void aboutApp() {
         removeAll();
-        setBackground(Color.GREEN);
+        setBackground(Color.YELLOW);
 
         String font1 = "Arial-30-bold";
         String font2 = "Arial-20";
@@ -354,5 +354,23 @@ public class Side extends GCanvas {
         arrow.setFont(font2);
         setCenterLocations(arrow, 0, 50);
         add(arrow);
+    }
+
+    public void references() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("Reference",1,2);
+    }
+
+    public void appInfo() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("App Info", 1,1);
+    }
+
+    public void credits() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("Credits",1,1);
     }
 }

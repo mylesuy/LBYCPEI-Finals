@@ -548,7 +548,7 @@ public class Main extends GraphicsProgram {
         ref_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                canvas.references();
             }
 
             @Override
@@ -575,7 +575,7 @@ public class Main extends GraphicsProgram {
         app_info_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                canvas.appInfo();
             }
 
             @Override
@@ -602,7 +602,7 @@ public class Main extends GraphicsProgram {
         credits_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                canvas.credits();
             }
 
             @Override
