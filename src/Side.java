@@ -1,4 +1,3 @@
-import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -119,7 +118,7 @@ public class Side extends GCanvas {
         add(line,  textX , textY );
     }
 
-    private void displayLesson(String module, int page) {
+    private void displayTxt(String module, int page) {
         removeAll();
         textY=0;
         try{
@@ -135,7 +134,7 @@ public class Side extends GCanvas {
     }
 
     private void page(String module, int page, int total) {
-        displayLesson(module,page);
+        displayTxt(module,page);
 
         GPolygon next = new GPolygon();
         next.addVertex(-30,0);
