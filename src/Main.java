@@ -19,9 +19,6 @@ public class Main extends GraphicsProgram {
     private int centerCanvasY() {
         return 470/2;
     }
-    private void setCenterLocations(GObject obj) {
-        obj.setLocation(centerCanvasX()-obj.getWidth()/2, centerCanvasY()-obj.getHeight()/2);
-    }
     private void setCenterLocations(GObject obj, int OffsetX, int OffsetY) {
         obj.setLocation((centerCanvasX()-obj.getWidth()/2)+OffsetX, (centerCanvasY()-obj.getHeight()/2)+OffsetY);
     }
@@ -94,7 +91,6 @@ public class Main extends GraphicsProgram {
         lessons_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //System.out.println("Mouse Clicked on Lessons.");  //for testing/debugging
                 drawLessons();
                 canvas.lessons();
             }
@@ -151,7 +147,8 @@ public class Main extends GraphicsProgram {
         about_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("About App Clicked!");
+                drawAbout();
+                canvas.aboutApp();
             }
 
             @Override
@@ -201,6 +198,8 @@ public class Main extends GraphicsProgram {
 
             }
         });
+
+        canvas.art();
     }
 
     public void drawLessons() {
@@ -344,7 +343,6 @@ public class Main extends GraphicsProgram {
             @Override
             public void mouseClicked(MouseEvent e) {
                 drawMainMenu();
-                canvas.art();
             }
 
             @Override
@@ -462,11 +460,176 @@ public class Main extends GraphicsProgram {
 
             }
         });
+
         exit_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 drawMainMenu();
-                canvas.art();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+    public void drawAbout() {
+        removeAll();
+        setBackground(Color.GRAY);
+
+        String font1 = "Arial-50-bold";
+        String font2 = "Arial-20";
+
+        GLabel About_App = new GLabel("About App");
+        About_App.setFont(font1);
+        setCenterX(About_App,40);
+        add(About_App);
+
+        GRect ref_b = new GRect(150,50);
+        ref_b.setFillColor(Color.LIGHT_GRAY);
+        ref_b.setFilled(true);
+        setCenterLocations(ref_b,0,-50);
+        add(ref_b);
+
+        GLabel ref_l = new GLabel("References");
+        ref_l.setFont(font2);
+        centerAtObj(ref_b,ref_l, 0, 18);
+        add(ref_l);
+
+        GRect app_info_b = new GRect(150,50);
+        app_info_b.setFillColor(Color.LIGHT_GRAY);
+        app_info_b.setFilled(true);
+        setCenterLocations(app_info_b,0,5);
+        add(app_info_b);
+
+        GLabel app_info_l = new GLabel("App Info");
+        app_info_l.setFont(font2);
+        centerAtObj(app_info_b,app_info_l,0,18);
+        add(app_info_l);
+
+        GRect credits_b = new GRect(150,50);
+        credits_b.setFillColor(Color.LIGHT_GRAY);
+        credits_b.setFilled(true);
+        setCenterLocations(credits_b,0,60);
+        add(credits_b);
+
+        GLabel credits_l = new GLabel("Credits");
+        credits_l.setFont(font2);
+        centerAtObj(credits_b,credits_l,0,18);
+        add(credits_l);
+
+        GRect exit_b = new GRect(150,50);
+        exit_b.setFillColor(Color.LIGHT_GRAY);
+        exit_b.setFilled(true);
+        setCenterLocations(exit_b,0,115);
+        add(exit_b);
+
+        GLabel exit_l = new GLabel("Exit About App");
+        exit_l.setFont(font2);
+        centerAtObj(exit_b,exit_l,0,18);
+        add(exit_l);
+
+        ref_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                canvas.references();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        app_info_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                canvas.appInfo();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        credits_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                canvas.credits();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        exit_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                drawMainMenu();
             }
 
             @Override

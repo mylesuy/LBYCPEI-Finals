@@ -1,4 +1,3 @@
-import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -112,14 +111,14 @@ public class Side extends GCanvas {
     private int textX=0;
     private int textY=0;
 
-    public void printText(String text){
+    private void printText(String text){
         GLabel line = new GLabel(text);
         line.setFont("Arial-16");
         textY += TEXT_HEIGHT;
         add(line,  textX , textY );
     }
 
-    public void displayLesson(String module, String page) {
+    private void displayTxt(String module, int page) {
         removeAll();
         textY=0;
         try{
@@ -134,9 +133,8 @@ public class Side extends GCanvas {
         }
     }
 
-    public void page(String module, int page, int total) {
-        String pg = "Lesson"+page;
-        displayLesson(module,pg);
+    private void page(String module, int page, int total) {
+        displayTxt(module,page);
 
         GPolygon next = new GPolygon();
         next.addVertex(-30,0);
@@ -171,6 +169,66 @@ public class Side extends GCanvas {
             next.setFillColor(Color.GRAY);
             add(next);
 
+        } else if (pre<1) {
+            previous.setFillColor(Color.GRAY);
+            add(previous);
+            add(next);
+            next.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,nxt,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+        } else if (nxt>total) {
+            add(previous);
+            previous.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    page(module,pre,total);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+            next.setFillColor(Color.GRAY);
+            add(next);
         } else {
             add(previous);
             add(next);
@@ -227,70 +285,6 @@ public class Side extends GCanvas {
                 }
             });
         }
-
-        if (pre<1) {
-            previous.setFillColor(Color.GRAY);
-            add(previous);
-            add(next);
-            next.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    page(module,nxt,total);
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-        }
-
-        if (nxt>total) {
-            add(previous);
-            previous.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    page(module,pre,total);
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-            next.setFillColor(Color.GRAY);
-            add(next);
-        }
     }
 
     public void module1() {
@@ -337,5 +331,46 @@ public class Side extends GCanvas {
         arrow.setFont(font2);
         setCenterLocations(arrow, 0, 50);
         add(arrow);
+    }
+
+    public void aboutApp() {
+        removeAll();
+        setBackground(Color.YELLOW);
+
+        String font1 = "Arial-30-bold";
+        String font2 = "Arial-20";
+
+        GLabel about = new GLabel("Welcome to About App!");
+        about.setFont(font1);
+        setCenterLocations(about,0,-10);
+        add(about);
+
+        GLabel selNfo = new GLabel("Please select the info you want to view");
+        selNfo.setFont(font2);
+        setCenterLocations(selNfo,0,20);
+        add(selNfo);
+
+        GLabel arrow = new GLabel("<--------------");
+        arrow.setFont(font2);
+        setCenterLocations(arrow, 0, 50);
+        add(arrow);
+    }
+
+    public void references() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("Reference",1,2);
+    }
+
+    public void appInfo() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("App Info", 1,1);
+    }
+
+    public void credits() {
+        removeAll();
+        setBackground(Color.YELLOW);
+        page("Credits",1,1);
     }
 }
