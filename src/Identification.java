@@ -16,6 +16,7 @@ public class Identification extends GraphicsProgram {
     String[] answer = {"YES", "YES", "YES", "YES", "YES"};
 
     public void run() {
+        setTitle("Scam Identifier");
         StartScreen();
         Questions();
         buttons();
