@@ -26,9 +26,6 @@ public class Main extends GraphicsProgram {
     private void setCenterX(GObject obj, int Y) {
         obj.setLocation(centerCanvasX()-obj.getWidth()/2, Y);
     }
-    private void setCenterY(GObject obj, int X) {
-        obj.setLocation(X, centerCanvasY()-obj.getHeight()/2);
-    }
     private void centerAtObj(GObject obj1, GObject obj2, int offsetX, int offsetY) {
         obj2.setLocation(obj1.getX() + (obj1.getWidth()/2 - obj2.getWidth()/2) + offsetX, obj1.getY() + (obj1.getHeight()/2 - obj2.getHeight()/2) + offsetY);
     }
