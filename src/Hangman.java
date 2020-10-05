@@ -12,7 +12,7 @@ interface HangmanI {
     void gameStats(int gamesCount, int gamesWon, int best);
 }
 
-public class HangmanInterface extends ConsoleProgram implements HangmanI {
+public class Hangman extends ConsoleProgram implements HangmanI {
     public void run() {
         int gameCount = 0, winCount = 0, bestGame = 0, gameState;
 
@@ -430,6 +430,6 @@ public class HangmanInterface extends ConsoleProgram implements HangmanI {
     }
 
     public static void main(String[] args) {
-        new HangmanInterface().start(args);
+        new Hangman().start(args);
     }
 }
