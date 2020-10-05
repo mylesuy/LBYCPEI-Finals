@@ -6,7 +6,6 @@ import java.io.*;
 interface HangmanI {
     void intro();
     int playOneGame(String secretWord);
-    void displayHangman(int guessCount);
     String createHint(String secretWord, String guess);
     String getRandomWord(String filename);
     void gameStats(int gamesCount, int gamesWon, int best);
@@ -20,7 +19,6 @@ public class Hangman extends ConsoleProgram implements HangmanI {
         boolean keepPlay = true;
         while (keepPlay) {
             gameState = playOneGame(getRandomWord("assets/Hangman/dict.txt")); //gets a random word from the text file;
-            //gameState = playOneGame("PROGRAMMER"); //for testing
 
             if (gameState > 0) {
                 winCount++; //add each victory
@@ -66,27 +64,21 @@ public class Hangman extends ConsoleProgram implements HangmanI {
         int i;
         int guessLeft = 8;
         String guesses = "", letter;  //stores the guessed words in a string
-        /*Scanner l = new Scanner(System.in);*/ //full console
         char guess = ' ', wrd[] = new char[len];
         boolean guessedAlready = false, foundInGuessed = false;
         canvas.reset(); //resets current displayed hangman
-        canvas.displayHangman(guessLeft); //acm console program
-        //displayHangman(guessLeft); //shows an ASCII hangman drawing per attempt remaining ; fully console
+        canvas.displayHangman(guessLeft);
         while (guessLeft != 0) {
             print("Secret word : " + createHint(secretWord, guesses)); //displays number of dashes
             print("\nYour guesses : " + guesses); //guessed letters
             println("\nGuesses Left: : " + guessLeft); //number of guesses left
             letter = readLine("Your guess? "); //acm console program
-            /*println("Your guess?"); //full console
-            letter = l.next();*/
             while (letter.length() != 1)
             {
                 println();
                 println("Your guess? What do you mean?\n");
                 println("Type a single letter from A-Z\n");
                 letter = readLine("Your guess? "); //acm console program
-                /*println("Your guess?");
-                letter = l.next();*/ //full console
             }
             guess = letter.toUpperCase().charAt(0); //gets the guess and capitalizes it and stores it in the array guess
             if (guesses.length() != 0) { //while there are still letters to be guessed
@@ -141,7 +133,6 @@ public class Hangman extends ConsoleProgram implements HangmanI {
             }
             canvas.reset();
             canvas.displayHangman(guessLeft);
-            //displayHangman(guessLeft);
         }
 
         if (guessLeft == 0) {
@@ -153,174 +144,6 @@ public class Hangman extends ConsoleProgram implements HangmanI {
             println("Congratulations! You saved the person! \nThe secret word is, " + secretWord);
         }
         return guessLeft;
-    }
-
-    @Override
-    public void displayHangman(int guessCount) {
-        switch(guessCount) {
-            case 8:
-                System.out.println("   +------------+");
-                System.out.println("   |            |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 7:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |     Why me?     |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 6:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |   I'm scared!   |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 5:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |I need a 'hand'! |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\-----");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 4:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |   Half Gone...  |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\---------//");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 3:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |    Not Good...  |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\---------//");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |            /");
-                System.out.println("   |           /");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 2:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |    Hurry Up!!   |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\---------//");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |            / \\");
-                System.out.println("   |           /   \\");
-                System.out.println("   |");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 1:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       |    Help me!!!   |");
-                System.out.println("   |        / o    o \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\---------//");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |            / \\");
-                System.out.println("   |           /   \\");
-                System.out.println("   |        __/");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-            case 0:
-                System.out.println("   +------------+            _________________");
-                System.out.println("   |            |           /                 \\");
-                System.out.println("   |         ________       | AUGH, I'M DEAD. |");
-                System.out.println("   |        / X    X \\   /  \\_________________/");
-                System.out.println("   |        |    .   |  /");
-                System.out.println("   |        | ______ |");
-                System.out.println("   |        \\________/");
-                System.out.println("   |             |");
-                System.out.println("   |       \\\\---------//");
-                System.out.println("   |             |");
-                System.out.println("   |             |");
-                System.out.println("   |            / \\");
-                System.out.println("   |           /   \\");
-                System.out.println("   |        __/     \\__");
-                System.out.println("   |");
-                System.out.println("___+___");
-                break;
-        }
     }
 
     @Override
@@ -405,28 +228,6 @@ public class Hangman extends ConsoleProgram implements HangmanI {
         }
 
     private HangmanCanvas canvas;
-
-    public int fileLineReader(String file) {
-        LineNumberReader reader = null;
-        int counts = 0;
-        try {
-            reader = new LineNumberReader(new FileReader(new File(file)));
-            // Read file till the end
-            while ((reader.readLine()) != null);
-            counts = reader.getLineNumber();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if(reader != null){
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return counts;
-    }
 
     public static void main(String[] args) {
         new Hangman().start(args);
