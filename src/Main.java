@@ -461,6 +461,33 @@ public class Main extends GraphicsProgram {
             }
         });
 
+        game4_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Quiz2 quiz = new Quiz2();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
         exit_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
