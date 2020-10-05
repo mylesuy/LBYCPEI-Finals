@@ -462,11 +462,37 @@ public class Main extends GraphicsProgram {
             }
         });
 
+        game2_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Hangman.main(new String[0]);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
         game3_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Identification identification = new Identification();
-                identification.main(new String[0]);
+                Identification.main(new String[0]);
             }
 
             @Override

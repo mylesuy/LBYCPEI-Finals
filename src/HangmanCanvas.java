@@ -32,7 +32,7 @@ public class HangmanCanvas extends GCanvas {
 
     public void displayHangman(int guessCount) {
         try{
-            BufferedReader buffer = new BufferedReader(new FileReader("assets/display"+guessCount+".txt"));
+            BufferedReader buffer = new BufferedReader(new FileReader("assets/Hangman/display"+guessCount+".txt"));
             String line;
             while ((line = buffer.readLine()) != null) {
                 printText(line);

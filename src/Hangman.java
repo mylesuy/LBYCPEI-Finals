@@ -19,7 +19,7 @@ public class Hangman extends ConsoleProgram implements HangmanI {
         intro();
         boolean keepPlay = true;
         while (keepPlay) {
-            gameState = playOneGame(getRandomWord("assets/dict.txt")); //gets a random word from the text file;
+            gameState = playOneGame(getRandomWord("assets/Hangman/dict.txt")); //gets a random word from the text file;
             //gameState = playOneGame("PROGRAMMER"); //for testing
 
             if (gameState > 0) {
@@ -346,7 +346,6 @@ public class Hangman extends ConsoleProgram implements HangmanI {
     public String getRandomWord(String filename) {
         String secretWord = "";
         RandomGenerator random = RandomGenerator.getInstance();
-        //int wordCount = random.nextInt(0, fileLineReader(file)-1); // for mydict.txt
         int wordCount = random.nextInt(1, 10); //for dict.txt
         try{
             BufferedReader buffer = new BufferedReader(new FileReader(filename));
