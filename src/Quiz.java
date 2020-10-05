@@ -1,7 +1,6 @@
-import javax.swing.*;
+import java.awt.event.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class Quiz implements ActionListener{
 
@@ -127,7 +126,7 @@ public class Quiz implements ActionListener{
         answer_labelD.setForeground(new Color(25,255,0));
         answer_labelD.setFont(new Font("Times new roman",Font.PLAIN,20));
 
-        seconds_left.setBounds(535,510,100,100);
+        seconds_left.setBounds(885,705,100,100);
         seconds_left.setBackground(new Color(25,25,25));
         seconds_left.setForeground(new Color(255,0,0));
         seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
@@ -136,7 +135,7 @@ public class Quiz implements ActionListener{
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
         seconds_left.setText(String.valueOf(seconds));
 
-        time_label.setBounds(535,475,100,25);
+        time_label.setBounds(885,680,100,25);
         time_label.setBackground(new Color(50,50,50));
         time_label.setForeground(new Color(255,0,0));
         time_label.setFont(new Font("MV Boli",Font.PLAIN,16));
