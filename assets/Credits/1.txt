@@ -2,6 +2,7 @@ CREDITS:
 
 Tutorial:
 Bro Code - Multiple Choice Game
+In-Class Activity (LBYCPEI) - Hangman Game
 
 Images:
 https://pixabay.com/vectors/template-layout-website-

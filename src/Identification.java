@@ -1,11 +1,8 @@
-import acm.graphics.GImage;
-import acm.graphics.GLabel;
-import acm.graphics.GRect;
-import acm.program.GraphicsProgram;
+import acm.graphics.*;
+import acm.program.*;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class Identification extends GraphicsProgram {
     int NumPics = 0;
@@ -21,11 +18,8 @@ public class Identification extends GraphicsProgram {
     public void run() {
         StartScreen();
         Questions();
-        WallPic();
         buttons();
-
     }
-
 
     private void StartScreen() {
         GLabel welcome = new GLabel("Welcome to the Identification Game");
@@ -36,7 +30,7 @@ public class Identification extends GraphicsProgram {
         pressStart.setFont("Arial-24");
         add(welcome, (getWidth() / 2) - 40 - (pressStart.getWidth() / 2), (getHeight() / 2) - 40 - (pressStart.getHeight() / 2));
         add(pressStart, getWidth() / 2 - (pressStart.getWidth() / 2), getHeight() / 2 - (pressStart.getHeight() / 2));
-        waitForClick();
+        //waitForClick();
         remove(pressStart);
         remove(welcome);
 
@@ -48,11 +42,6 @@ public class Identification extends GraphicsProgram {
         question1.setColor(Color.BLACK);
         question1.setFont("Garamond-20");
         add(question1, 43, 42);
-    }
-
-    private void WallPic() {
-
-
     }
 
     private void nextPhoto() {
@@ -116,15 +105,12 @@ public class Identification extends GraphicsProgram {
         Yes.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //remove(pic1);
                 nextPhoto();
 
                 if (e.getSource() == Yes) {
                     correct_guesses++;
                     NumPics++;
                     score();
-
-
                 }
             }
 
@@ -152,12 +138,9 @@ public class Identification extends GraphicsProgram {
         No.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //remove(pic1);
                 nextPhoto();
                 NumPics++;
                 score();
-
-
             }
 
             @Override
@@ -188,9 +171,10 @@ public class Identification extends GraphicsProgram {
             GLabel point = new GLabel(result + "/6");
             point.setFont("Garamond-30");
             add(point, 615, 67);
-
         }
+    }
 
-
+    public static void main(String[] args) {
+        new Identification().start(args);
     }
 }

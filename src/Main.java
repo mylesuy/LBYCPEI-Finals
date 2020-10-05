@@ -11,6 +11,7 @@ public class Main extends GraphicsProgram {
         canvas = new Side();
         add(canvas);
         canvas.art();
+        setTitle("Interactive Guide for Online Etiquette and Safety");
     }
 
     private int centerCanvasX() {
@@ -438,6 +439,34 @@ public class Main extends GraphicsProgram {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Quiz quiz = new Quiz();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        game3_b.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Identification identification = new Identification();
+                identification.main(new String[0]);
             }
 
             @Override
