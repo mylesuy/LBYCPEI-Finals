@@ -9,6 +9,9 @@ import java.awt.event.MouseListener;
 
 public class Identification extends GraphicsProgram {
     private final int NumPics=10;
+
+    private int num = 1;
+
     int result;
     String[] answers={"YES","YES","YES","YES","YES"};
     public void run() {
@@ -47,22 +50,42 @@ public class Identification extends GraphicsProgram {
 
 
     }
+    private void drawImages(int picNum) {
+        switch (picNum) {
+            case 1 -> {
+                GImage pic1 = new GImage("assets/Identification/1.jpg");
+                pic1.setSize(200, 400);
+                add(pic1, 270, 69);
+            }
+            case 2 -> {
+                GImage pic2 = new GImage("assets/Identification/2.png");
+                pic2.setSize(200,400);
+                add(pic2,270,69);
+            }
+            case 3 -> {
+                GImage pic3 = new GImage("assets/Identification/3.png");
+                pic3.setSize(200,400);
+                add(pic3,270,69);
+            }
+            case 4 -> {
+                GImage pic4 = new GImage("assets/Identification/4.jpg");
+                pic4.setSize(200,400);
+                add(pic4,270,69);
+            }
+            case 5 -> {
+                GImage pic5 = new GImage("assets/Identification/5.jpg");
+                pic5.setSize(200,400);
+                add(pic5,270,69);
+            }
+            case 6 -> {
+                GImage pic6 = new GImage("assets/Identification/6.jpg");
+                pic6.setSize(200,400);
+                add(pic6,270,69);
+            }
+        }
+    }
     private void buttons(){
-        GImage Front = new GImage("assets/frontrow2.jpg");
-        Front.setSize(200,400);
-        add(Front,270,69);
-        GImage Back = new GImage("assets/d.jpg");
-        Back.setSize(200,400);
-        add(Back,270,69);
-        GImage scam = new GImage("assets/a.png");
-        scam.setSize(200,400);
-        add(scam,270,69);
-        GImage s = new GImage("assets/image0.png");
-        s.setSize(200,400);
-        add(s,270,69);
-        GImage Xbox = new GImage("assets/Tite.jpg");
-        Xbox.setSize(200,400);
-        add(Xbox,270,69);
+        drawImages(1);
         GRect Yes = new GRect(150,100);
         Yes.setFillColor(Color.GREEN);
         Yes.setFilled(true);
@@ -82,7 +105,9 @@ public class Identification extends GraphicsProgram {
         Yes.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                remove(Xbox);
+                //remove(pic1);
+                num++;
+                drawImages(num);
                 result++;
 
             }
@@ -111,7 +136,9 @@ public class Identification extends GraphicsProgram {
         No.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                remove(Xbox);
+                //remove(pic1);
+                num++;
+                drawImages(num);
                 result--;
 
             }
