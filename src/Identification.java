@@ -50,6 +50,10 @@ public class Identification extends GraphicsProgram {
 
 
     }
+    private void nextPhoto() {
+        num++;
+        drawImages(num);
+    }
     private void drawImages(int picNum) {
         switch (picNum) {
             case 1 -> {
@@ -106,8 +110,7 @@ public class Identification extends GraphicsProgram {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //remove(pic1);
-                num++;
-                drawImages(num);
+                nextPhoto();
                 result++;
 
             }
@@ -137,8 +140,7 @@ public class Identification extends GraphicsProgram {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //remove(pic1);
-                num++;
-                drawImages(num);
+                nextPhoto();
                 result--;
 
             }
