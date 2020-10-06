@@ -7,8 +7,6 @@ import java.io.IOException;
 
 public class DisplayImage {
 
-    private JLabel label;
-
     private void setImg(String file, JLabel l) {
         BufferedImage bimg = null;
         try {
