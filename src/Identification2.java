@@ -1,4 +1,7 @@
+
+
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +33,7 @@ public class Identification2 extends JPanel implements ActionListener {
     int correct_guesses =0;
     int total_questions = questions.length;
     int result;
-    private int num = 1;
+
 
     JFrame frame = new JFrame();
     JTextField textfield = new JTextField();
@@ -42,14 +45,8 @@ public class Identification2 extends JPanel implements ActionListener {
     JLabel answer_labelNO = new JLabel();
     JTextField number_right = new JTextField();
     JTextField percentage = new JTextField();
-    JLabel pic1 = new JLabel();
-    JLabel pic2 = new JLabel();
-    JLabel pic3 = new JLabel();
-    JLabel pic4 = new JLabel();
-    JLabel pic5 = new JLabel();
-    JLabel pic6 = new JLabel();
 
-    JPanel holder = new JPanel();
+
     private JLabel label;
 
     private void setImg(String file, JLabel l) {
@@ -129,23 +126,6 @@ public class Identification2 extends JPanel implements ActionListener {
         percentage.setHorizontalAlignment(JTextField.CENTER);
         percentage.setEditable(false);
 
-        holder.setBounds(230,200,500,300);
-        holder.setBackground(new Color(25,25,25));
-        holder.setForeground(new Color(25,255,0));
-        holder.setBorder(BorderFactory.createBevelBorder(1));
-
-        pic1.setBounds(230,200,1000,100);
-        pic1.setVisible(true);
-        pic2.setBounds(230,200,500,300);
-        pic2.setVisible(true);
-        pic3.setBounds(230,200,500,300);
-        pic3.setVisible(true);
-        pic4.setBounds(230,200,500,300);
-        pic4.setVisible(true);
-        pic5.setBounds(230,200,500,300);
-        pic5.setVisible(true);
-        pic6.setBounds(230,200,500,300);
-
         JPanel panel = (JPanel)frame.getContentPane();
 
         JLabel label = new JLabel();
@@ -174,58 +154,14 @@ public class Identification2 extends JPanel implements ActionListener {
         frame.add(textarea);
         frame.add(textfield);
         frame.setVisible(true);
-        frame.add(holder);
+
 
 
         nextQuestion();
 
 
     }
-    private void nextPhoto() {
-        num++;
-        drawImages(num);
-    }
-    private void drawImages(int picNum) {
-        switch (picNum) {
-            case 1 -> {
-                pic1.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\1.jpg"));
-                pic1.setBounds(230,200,200,400);
-                pic1.setVisible(true);
-                holder.add(pic1);
-            }
-            case 2 -> {
-                pic2.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\2.jpg"));
-                pic2.setBounds(230,200,200,400);
-                pic2.setVisible(true);
-                holder.add(pic2);
-            }
-            case 3 -> {
-                pic3.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\3.jpg"));
-                pic3.setBounds(230,200,200,400);
-                pic3.setVisible(true);
-                holder.add(pic3);
-            }
-            case 4 -> {
-                pic4.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\4.jpg"));
-                pic4.setBounds(230,200,200,400);
-                pic4.setVisible(true);
-                holder.add(pic4);
-            }
-            case 5 -> {
-                pic5.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\5.jpg"));
-                pic5.setBounds(230,200,200,400);
-                pic5.setVisible(true);
-                holder.add(pic5);
 
-            }
-            case 6 -> {
-                pic6.setIcon(new ImageIcon("C:\\Users\\Mashuu\\IdeaProjects\\otherquiez\\assets\\Identification\\6.jpg"));
-                pic6.setBounds(230,200,200,400);
-                pic6.setVisible(true);
-                holder.add(pic6);
-            }
-        }
-    }
 
 
 
@@ -253,18 +189,18 @@ public class Identification2 extends JPanel implements ActionListener {
 
         if(e.getSource()==buttonYES) {
             answer= "YES";
-            nextPhoto();
+
             if(answer == answers[index]) {
                 correct_guesses++;
-                nextPhoto();
+
             }
         }
         if(e.getSource()==buttonNO) {
             answer= "NO";
-            nextPhoto();
+
             if(answer == answers[index]) {
                 correct_guesses++;
-                nextPhoto();
+
             }
         }
 
