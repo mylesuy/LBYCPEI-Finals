@@ -1,7 +1,7 @@
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
+import acm.graphics.*;
 public class Quiz implements ActionListener{
 
     String[] questions = 	{
@@ -196,6 +196,7 @@ public class Quiz implements ActionListener{
         buttonB.setEnabled(false);
         buttonC.setEnabled(false);
         buttonD.setEnabled(false);
+
 
         if(e.getSource()==buttonA) {
             answer= 'A';
