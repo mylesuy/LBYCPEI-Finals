@@ -29,7 +29,7 @@ public class DisplayImage {
 
         JLabel label = new JLabel();
 
-        int i=2;
+        int i=2; //change this value to get another photo (1-6 only)
 
         String file = "assets/Identification/" + i + ".jpg";
 
