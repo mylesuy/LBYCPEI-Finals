@@ -394,9 +394,9 @@ public class Main extends GraphicsProgram {
         setCenterLocations(game2_b,0,5);
         add(game2_b);
 
-        GLabel game2_l = new GLabel("Hangman");
+        GLabel game2_l = new GLabel("Identification");
         game2_l.setFont(font2);
-        centerAtObj(game2_b, game2_l,0,18);
+        centerAtObj(game2_b,game2_l,0,18);
         add(game2_l);
 
         GRect game3_b = new GRect(300,50);
@@ -405,26 +405,15 @@ public class Main extends GraphicsProgram {
         setCenterLocations(game3_b,0,60);
         add(game3_b);
 
-        GLabel game3_l = new GLabel("Identification");
+        GLabel game3_l = new GLabel("Multiple Choice - IRL");
         game3_l.setFont(font2);
         centerAtObj(game3_b,game3_l,0,18);
         add(game3_l);
 
-        GRect game4_b = new GRect(300,50);
-        game4_b.setFillColor(Color.LIGHT_GRAY);
-        game4_b.setFilled(true);
-        setCenterLocations(game4_b,0,115);
-        add(game4_b);
-
-        GLabel game4_l = new GLabel("Multiple Choice - IRL");
-        game4_l.setFont(font2);
-        centerAtObj(game4_b,game4_l,0,18);
-        add(game4_l);
-
         GRect exit_b = new GRect(300,50);
         exit_b.setFillColor(Color.LIGHT_GRAY);
         exit_b.setFilled(true);
-        setCenterLocations(exit_b,0,170);
+        setCenterLocations(exit_b,0,115);
         add(exit_b);
 
         GLabel exit_l = new GLabel("Exit Games");
@@ -462,33 +451,6 @@ public class Main extends GraphicsProgram {
         game2_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Hangman.main(new String[0]);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
-        game3_b.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
                 Identification.main(new String[0]);
             }
 
@@ -513,7 +475,7 @@ public class Main extends GraphicsProgram {
             }
         });
 
-        game4_b.addMouseListener(new MouseListener() {
+        game3_b.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Quiz2 quiz = new Quiz2();
